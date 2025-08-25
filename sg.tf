@@ -1,6 +1,6 @@
 resource "aws_security_group" "ecs" {
   name   = "ecs-task-sg"
-  vpc_id = aws_vpc.main.id
+  vpc_id = vpc-0925f1a1319a1c2fb
 
   ingress {
     from_port   = 80

@@ -12,8 +12,8 @@ resource "aws_ecs_service" "project32_service" {
   launch_type     = "FARGATE"
 
   network_configuration {
-    subnets          = [aws_subnet.public.id]      # Replace with your subnet ID(s)
-    security_groups  = [aws_security_group.ecs.id] # Replace with your SG
+    subnets          = ["subnet-0b55d9cd54c5877bf"]
+    security_groups  = [aws_security_group.ecs.id]
     assign_public_ip = true
   }
 }
