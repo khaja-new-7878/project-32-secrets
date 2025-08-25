@@ -11,10 +11,12 @@ resource "aws_ecs_service" "project32_service" {
   desired_count   = 1
   launch_type     = "FARGATE"
 
+  # 🔹 Required for ECS Exec (aws ecs execute-command)
+  enable_execute_command = true
+
   network_configuration {
-    subnets          = ["subnet-0b55d9cd54c5877bf"]
+    subnets          = ["subnet-0b55d9cd54c5877bf"] # replace with your subnet
     security_groups  = [aws_security_group.ecs.id]
     assign_public_ip = true
   }
 }
-
