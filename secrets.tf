@@ -1,6 +1,9 @@
-# Use a unique name with workspace suffix (or timestamp)
+resource "random_id" "suffix" {
+  byte_length = 4
+}
+
 resource "aws_secretsmanager_secret" "db_secret" {
-  name        = "mydb/credentials-${terraform.workspace}"
+  name        = "mydb/credentials-${random_id.suffix.hex}"
   description = "Database credentials for Project 32"
 }
 
